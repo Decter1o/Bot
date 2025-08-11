@@ -1,4 +1,4 @@
-﻿using Telegram.Bot;
+using Telegram.Bot;
 using Telegram.Bot.Polling;
 using Telegram.Bot.Types;
 using Microsoft.Extensions.Configuration;
@@ -33,8 +33,8 @@ namespace Bot
             var me = await botClient.GetMeAsync(cts.Token);
             Console.WriteLine($"Бот @{me.Username} запущен.");
 
-            Console.ReadLine();
-            cts.Cancel();
+            await Task.Delay(-1, cts.Token);
+
         }
 
         static async Task HandleUpdateAsync(ITelegramBotClient bot, Update update, CancellationToken cancellationToken)
